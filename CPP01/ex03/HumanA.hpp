@@ -6,7 +6,7 @@
 /*   By: hlyshchu <hlyshchu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 15:27:11 by hlyshchu          #+#    #+#             */
-/*   Updated: 2024/12/19 15:30:41 by hlyshchu         ###   ########.fr       */
+/*   Updated: 2024/12/19 16:57:04 by hlyshchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ public:
 };
 
 HumanA::HumanA(std::string initName, Weapon initWeapon) 
-    : name{initName}, weapon{ini}
-{
+    : name(initName), weapon(initWeapon) {}
 
-}
-
-HumanA::~HumanA()
-{
-}
+HumanA::~HumanA() {}

@@ -11,10 +11,10 @@ NAME = zombie
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	$(COMPILER) $(FLAGS) $(OBJ_FILES) -o $(NAME)
+	$(COMPILER) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
-	$(COMPILER) $(FLAGS) -c $< -o $@	
+%.o: %.cpp  
+	$(COMPILER) $(CFLAGS) -c $< -o $@	
 
 clean:	
 	rm -f $(OBJ_FILES)
