@@ -12,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	$(COMPILER) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp
 	$(COMPILER) $(CFLAGS) -c $< -o $@
 
 clean:

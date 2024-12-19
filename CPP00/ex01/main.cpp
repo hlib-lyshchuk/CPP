@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hlyshchu <hlyshchu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:13:32 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 11:43:35 by root             ###   ########.fr       */
+/*   Updated: 2024/12/19 16:46:43 by hlyshchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <limits>
 #include <cctype>
 #include <csignal>
+#include <cstdlib>
+#include <sstream>
 
 // #define FATAL_ERROR "\nExiting program due to input error or EOF."
 // #define FNAME_INPUT_ERROR "First name shouldn't be empty and can contain only spaces and alphabet character."
@@ -31,18 +33,11 @@ static bool validateFullName(const std::string &str);
 static bool validateNickSecret(const std::string &str);
 static bool validatePhone(const std::string &str);
 static bool validateIndexInput(const std::string &str);
-
-void handleSignal(int signal)
-{
-	if (signal == SIGINT)
-		std::cout << "\nSIGINT (Ctrl+C) received. Exiting cleanly...\n";
-	else if (signal == SIGQUIT)
-		std::cout << "\nSIGQUIT (Ctrl+\\) received. Exiting cleanly...\n";
-	std::exit(0);
-}
+static void handleSignal(int signal);
 
 int main(int argc, char **argv)
 {
+	(void)argv;
 	PhoneBook phonebook;
 	std::string command;
 
@@ -81,6 +76,15 @@ int main(int argc, char **argv)
 			std::cout << "Unknown command. Please try again.\n";
 	}
 	return (0);
+}
+
+static void handleSignal(int signal)
+{
+	if (signal == SIGINT)
+		std::cout << "\nSIGINT (Ctrl+C) received. Exiting cleanly...\n";
+	else if (signal == SIGQUIT)
+		std::cout << "\nSIGQUIT (Ctrl+\\) received. Exiting cleanly...\n";
+	std::exit(0);
 }
 static void printError(const std::string &msg)
 {
@@ -228,7 +232,10 @@ static int searchContact(PhoneBook *phonebook)
 		return (0);
 	}
 
-	int index = std::stoi(input);
+	std::istringstream iss(input);
+	int index;
+	iss >> index;
+
 	if (index < 1 || index > phonebook->getTotalContacts())
 	{
 		printError("Index is out of range.");
