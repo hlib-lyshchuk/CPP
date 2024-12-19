@@ -1,6 +1,5 @@
 COMPILER = c++
-CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98 -fsanitize=address 
-
+CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98 -fsanitize=address
 
 SRC_FILES = tests.cpp Account.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
@@ -11,12 +10,12 @@ NAME = account
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
-	$(COMPILER) $(FLAGS) $(OBJ_FILES) -o $(NAME)
+	$(COMPILER) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
 
 %.o: %.cpp $(HEADERS)
-	$(COMPILER) $(FLAGS) -c $< -o $@	
+	$(COMPILER) $(CFLAGS) -c $< -o $@
 
-clean:	
+clean:
 	rm -f $(OBJ_FILES)
 
 fclean: clean
