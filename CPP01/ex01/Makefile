@@ -1,7 +1,6 @@
 COMPILER = c++
 CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98 -fsanitize=address 
 
-
 SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 HEADERS = Zombie.hpp

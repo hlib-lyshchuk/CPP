@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlyshchu <hlyshchu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 12:25:03 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 16:50:06 by hlyshchu         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:30:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ Zombie::~Zombie()
 
 void Zombie::announce()
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ...";
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
