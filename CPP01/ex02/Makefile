@@ -1,19 +1,17 @@
 COMPILER = c++
 CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98 -fsanitize=address 
 
-
-SRC_FILES = main.cpp Zombie.cpp zombieHorde.cpp
+SRC_FILES = main.cpp 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-HEADERS = Zombie.hpp
 
-NAME = zombie
+NAME = brain
 
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	$(COMPILER) $(FLAGS) $(OBJ_FILES) -o $(NAME)
 
-%.o: %.cpp $(HEADERS)
+%.o: %.cpp 
 	$(COMPILER) $(FLAGS) -c $< -o $@	
 
 clean:	

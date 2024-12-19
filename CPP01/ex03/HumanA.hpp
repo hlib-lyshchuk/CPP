@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlyshchu <hlyshchu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 12:25:03 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 14:51:46 by hlyshchu         ###   ########.fr       */
+/*   Created: 2024/12/19 15:27:11 by hlyshchu          #+#    #+#             */
+/*   Updated: 2024/12/19 15:30:41 by hlyshchu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
 #include <string>
-#include <iostream>
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name) : name(name) {}
-Zombie::Zombie() : name("(null)") {}
-
-Zombie::~Zombie()
+class HumanA
 {
-	std::cout << "Destructor called for " << name << std::endl;
+private:
+    std::string name;
+    Weapon weapon;
+
+public:
+    HumanA(std::string initName, Weapon initWeapon);
+    ~HumanA();
+    void attack (void);
+};
+
+HumanA::HumanA(std::string initName, Weapon initWeapon) 
+    : name{initName}, weapon{ini}
+{
+
 }
 
-void Zombie::announce()
+HumanA::~HumanA()
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ...";
-}
-
-void Zombie::setName(std::string &newName)
-{
-	name = newName;
 }
