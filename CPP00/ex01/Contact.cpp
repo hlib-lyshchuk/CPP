@@ -6,25 +6,23 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:01:01 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 10:47:56 by root             ###   ########.fr       */
+/*   Updated: 2024/12/19 11:47:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+#include <iostream>
 
-Contact::Contact() {}
-
-Contact::Contact(std::string f_name, std::string l_name, std::string nick,
-				 std::string phone, std::string secret)
+Contact::Contact() : first_name(""), last_name(""), nickname(""),
+					 phone_number(""), darkest_secret("")
 {
-	first_name = f_name;
-	last_name = l_name;
-	nickname = nick;
-	phone_number = phone;
-	darkest_secret = secret;
+	std::cout << "Default contructor for Contact called\n";
 }
 
-Contact::~Contact() {}
+Contact::~Contact()
+{
+	std::cout << "Default destructor for Contact called\n";
+}
 
 std::string Contact::getFirstName(void) const
 {

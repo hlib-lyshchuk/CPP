@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 09:13:32 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 10:58:27 by root             ###   ########.fr       */
+/*   Updated: 2024/12/19 11:43:35 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,7 @@ static int addCommand(PhoneBook *phonebook)
 	const std::string lname_err = "Last name should not be empty and can only contain spaces and alphabetic characters.";
 	const std::string nick_err = "Nickname should not be empty and can contain spaces, alphabetic characters, and digits.";
 	const std::string phone_err = "Phone number should not be empty and can contain a '+' at the start followed by digits.";
-	const std::string secrer_err = "Darkest secret should not be empty and can contain spaces, alphabetic characters, and digits.";
+	const std::string secret_err = "Darkest secret should not be empty and can contain spaces, alphabetic characters, and digits.";
 
 	if (!phonebook)
 	{
@@ -186,11 +186,11 @@ static int addCommand(PhoneBook *phonebook)
 	status = inputWithValidation("Enter phone number: ", phone, validatePhone, phone_err);
 	if (status != 1)
 		return (status);
-	status = inputWithValidation("Enter darkest secret: ", secret, validateNickSecret, secrer_err);
+	status = inputWithValidation("Enter darkest secret: ", secret, validateNickSecret, secret_err);
 	if (status != 1)
 		return (status);
-	Contact newContact(first, last, nick, phone, secret);
-	phonebook->addContact(newContact);
+	// Contact newContact(first, last, nick, phone, secret);
+	phonebook->addContact(first, last, nick, phone, secret);
 	std::cout << "Contact added successfully!" << std::endl;
 	return (1);
 }

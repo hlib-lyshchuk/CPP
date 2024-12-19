@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 17:37:29 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 10:50:42 by root             ###   ########.fr       */
+/*   Updated: 2024/12/19 11:48:20 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,15 @@
 #include <iostream>
 #include <iomanip>
 
-PhoneBook::PhoneBook() : currentIndex(0), totalContacts(0) {};
+PhoneBook::PhoneBook() : currentIndex(0), totalContacts(0)
+{
+	std::cout << "Default contructor for Contact called\n";
+}
 
-PhoneBook::~PhoneBook() {};
+PhoneBook::~PhoneBook()
+{
+	std::cout << "Default destructor for Contact called\n";
+}
 
 std::string PhoneBook::formatField(const std::string &field) const
 {
@@ -31,9 +37,13 @@ std::string PhoneBook::formatField(const std::string &field) const
 
 int PhoneBook::getTotalContacts(void) const { return totalContacts; }
 
-void PhoneBook::addContact(const Contact &contact)
+void PhoneBook::addContact(std::string f_name, std::string l_name, std::string nick, std::string phone, std::string secret)
 {
-	contacts[currentIndex] = contact;
+	contacts[currentIndex].setFirstName(f_name);
+	contacts[currentIndex].setLastName(l_name);
+	contacts[currentIndex].setNickname(nick);
+	contacts[currentIndex].setPhoneNumber(phone);
+	contacts[currentIndex].setSecret(secret);
 	currentIndex = (currentIndex + 1) % 8;
 	if (totalContacts < 8)
 		totalContacts++;

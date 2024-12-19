@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 16:57:14 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 10:48:13 by root             ###   ########.fr       */
+/*   Updated: 2024/12/19 11:42:21 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ private:
 
 public:
 	Contact();
-	Contact(std::string f_name, std::string l_name, std::string nick,
-			std::string phone, std::string secret);
+	// Contact(std::string f_name, std::string l_name, std::string nick,
+	// 		std::string phone, std::string secret);
 	~Contact();
 
 	std::string getFirstName(void) const;
