@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 20:21:30 by root              #+#    #+#             */
-/*   Updated: 2024/12/19 21:14:03 by root             ###   ########.fr       */
+/*   Updated: 2024/12/20 08:54:01 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int main(int argc, char **argv)
 	std::string s2 = argv[3];
 
 	if (!Replace::processFile(filename, s1, s2))
-	{
-		return 1;
-	}
-
+		return (1);
 	std::cout << "File processed successfully. Output written to " << filename << ".replace" << std::endl;
 	return 0;
 }
