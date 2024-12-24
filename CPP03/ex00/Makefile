@@ -1,5 +1,6 @@
 COMPILER = c++
-CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98 -fsanitize=address 
+CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98  \
+		-fsanitize=address -Wshadow -Wno-shadow
 
 
 SRC_FILES = main.cpp  ClapTrap.cpp

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 21:16:18 by root              #+#    #+#             */
-/*   Updated: 2024/12/24 16:05:38 by root             ###   ########.fr       */
+/*   Updated: 2024/12/24 16:04:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string name;
 	unsigned int health;
 	unsigned int energy;
@@ -33,7 +33,9 @@ public:
 
 	// Destructor
 	virtual ~ClapTrap();
-	void attack(const std::string &target);
+
+	// Public method
+	virtual void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };

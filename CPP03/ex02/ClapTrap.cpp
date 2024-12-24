@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 21:20:02 by root              #+#    #+#             */
-/*   Updated: 2024/12/24 16:06:06 by root             ###   ########.fr       */
+/*   Updated: 2024/12/24 15:54:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap destructor called for " << name << std::endl;
 }
+
 void ClapTrap::attack(const std::string &target)
 {
 	if (health == 0)

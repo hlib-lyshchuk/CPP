@@ -3,11 +3,11 @@ CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98  \
 		-fsanitize=address -Wshadow -Wno-shadow
 
  
-SRC_FILES = main.cpp  ClapTrap.cpp ScavTrap.cpp
+SRC_FILES = main.cpp  ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
-HEADERS = ClapTrap.hpp ScavTrap.hpp
+HEADERS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
-NAME = ScavTrap
+NAME = FlagTrap
 
 all: $(NAME)
 
