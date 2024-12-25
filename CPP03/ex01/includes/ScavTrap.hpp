@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 17:46:20 by root              #+#    #+#             */
-/*   Updated: 2024/12/25 18:36:17 by root             ###   ########.fr       */
+/*   Created: 2024/12/25 18:33:54 by root              #+#    #+#             */
+/*   Updated: 2024/12/25 18:49:09 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
+#include "ClapTrap.hpp"
 
-class ClapTrap
+class ScavTrap : public ClapTrap
 {
 private:
-	std::string name;
-	unsigned int hit_points;
-	unsigned int energy;
-	unsigned int attack_dmg;
-
-	static const unsigned int MAX_HIT_POINTS = 10;
-	static const unsigned int MAX_ENERGY = 10;
+	bool isGuardingGate;
+	static const unsigned int MAX_HIT_POINTS = 100;
+	static const unsigned int MAX_ENERGY = 50;
 
 public:
 	// constructor
-	ClapTrap();
-	ClapTrap(std::string clap_name);
+	ScavTrap();
+	ScavTrap(std::string scav_name);
 	// copy constructor
-	ClapTrap(const ClapTrap &copy);
+	ScavTrap(const ScavTrap &copy);
 	// copy assignment operator
-	ClapTrap &operator=(const ClapTrap &src);
+	ScavTrap &operator=(const ScavTrap &src);
 	// destructor
-	~ClapTrap();
+	~ScavTrap();
 	// public methods
 	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	void guardGate();
 };
