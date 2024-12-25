@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/22 21:16:18 by root              #+#    #+#             */
-/*   Updated: 2024/12/24 16:05:38 by root             ###   ########.fr       */
+/*   Created: 2024/12/25 17:46:20 by root              #+#    #+#             */
+/*   Updated: 2024/12/25 18:27:06 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,24 @@ class ClapTrap
 {
 private:
 	std::string name;
-	unsigned int health;
+	unsigned int hit_points;
 	unsigned int energy;
-	unsigned int attackDamage;
+	unsigned int attack_dmg;
+
+	static const unsigned int MAX_HIT_POINTS = 10;
+	static const unsigned int MAX_ENERGY = 10;
 
 public:
-	// Constructor
-	ClapTrap(std::string name);
+	// constructor
 	ClapTrap();
-	// Copy Constructor
+	ClapTrap(std::string clap_name);
+	// copy constructor
 	ClapTrap(const ClapTrap &copy);
-
-	// Copy assignment operator
+	// copy assignment operator
 	ClapTrap &operator=(const ClapTrap &src);
-
-	// Destructor
-	virtual ~ClapTrap();
+	// destructor
+	~ClapTrap();
+	// public methods
 	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);

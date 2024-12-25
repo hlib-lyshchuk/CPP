@@ -1,24 +1,35 @@
 COMPILER = c++
-CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98  \
-		-fsanitize=address -Wshadow -Wno-shadow
+CFLAGS = -Wall -Werror -Wsign-conversion -Wextra -pedantic -g -std=c++98 \
+		-Wshadow -Wno-shadow -fsanitize=address 
 
+# directories
+SRC_DIR = src/
+INC_DIR = includes/
+OBJ_DIR = obj/
 
-SRC_FILES = main.cpp  ClapTrap.cpp
-OBJ_FILES = $(SRC_FILES:.cpp=.o)
+# files
+SRC_FILES = main.cpp ClapTrap.cpp
 HEADERS = ClapTrap.hpp  
+
+# derived variables
+SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
+INCLUDES = -I$(INC_DIR)
 
 NAME = ClapTrap
 
+# targets
 all: $(NAME)
 
-$(NAME): $(OBJ_FILES)
-	$(COMPILER) $(CFLAGS) $(OBJ_FILES) -o $(NAME)
+$(NAME): $(OBJ)
+	$(COMPILER) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp 
-	$(COMPILER) $(CFLAGS) -c $< -o $@	
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp $(addprefix $(INC_DIR), $(HEADERS))
+	mkdir -p $(OBJ_DIR)
+	$(COMPILER) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-clean:	
-	rm -f $(OBJ_FILES)
+clean:
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
