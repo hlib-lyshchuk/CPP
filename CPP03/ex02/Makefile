@@ -8,15 +8,15 @@ INC_DIR = includes/
 OBJ_DIR = obj/
 
 # files
-SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp  
-HEADERS = ClapTrap.hpp ScavTrap.hpp
+SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+HEADERS = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 # derived variables
 SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.cpp=.o))
 INCLUDES = -I$(INC_DIR)
 
-NAME = ScavTrap
+NAME = FragTrap
 
 # targets
 all: $(NAME)
